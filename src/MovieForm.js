@@ -6,7 +6,7 @@ const MovieForm = (props) => {
                 type="text"
                 id="newMovie"
                 onChange={props.handleChange}
-                value={props.userInput}
+                value={props.value}
             />            
 
             <button onClick={props.handleClick}>Add Movie</button>

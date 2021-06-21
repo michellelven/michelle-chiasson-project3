@@ -16,12 +16,7 @@ function App() {
   const handleClick = (event) => {
     event.preventDefault();
     dbRef.push(userInput);
-    setTimeout(() => {
-      setUserInput('');
-
-    }, 1000);
-    console.log(userInput);
-    // event.target.reset();
+    setUserInput('');
   }
 
   const removeMovie = (movieId) => {
@@ -66,8 +61,5 @@ function App() {
     </div>
   );
 }
-
-  /* onClick={() => props.removeMovie(movieId)} */
-
 
 export default App;
