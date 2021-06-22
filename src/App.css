@@ -21,7 +21,9 @@ body {
 
 h1,
 h2,
-p {
+p,
+ul,
+li {
     margin: 0;
     padding: 0;
 }
@@ -37,15 +39,56 @@ img {
     margin: 0 auto;
 }
 
+li {
+    list-style-type: none;
+}
+
 /* Header Styles */
 
-/* header {
+header {
     background-color: #3A0CA3;
-} */
+    display: flex;
+    justify-content: center;
+}
+
+header .reelImage {
+    height: 80px;
+    padding-left: 0.5rem;
+}
 
 h1 {
     font-family: 'Yanone Kaffeesatz', sans-serif;
     text-transform: uppercase;
     font-weight: 600;
     font-size: 4rem;
+    color: white;
+    padding-right: 0.5rem;
 }
+
+/* MovieForm Component Styles (Instructions and Form) */
+
+.instructionsForm {
+    background-color: #3A0CA3;
+    color: white;
+    text-align: center;
+}
+
+.instructionsForm p span {
+    display: block;
+}
+
+/* Movie List Section Styles */
+
+.App {
+    background-color: #3A0CA3;
+}
+
+.App ul {
+    text-align: center;
+}
+
+.App li p {
+    color: white;
+}
+
+

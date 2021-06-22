@@ -1,4 +1,4 @@
-const MovieForm = (props) => {
+const MovieForm = ({value, handleChange, handleClick}) => {
     return (
         <div className="instructionsForm">
             <h2>Create your movie "watch-list"!</h2>
@@ -8,11 +8,11 @@ const MovieForm = (props) => {
                 <input
                     type="text"
                     id="newMovie"
-                    onChange={props.handleChange}
-                    value={props.value}
+                    onChange={handleChange}
+                    value={value}
                 />
 
-                <button onClick={props.handleClick}>Add Movie!</button>
+                <button onClick={handleClick}>Add Movie!</button>
             </form>
         </div>
     );
