@@ -1,6 +1,6 @@
 import './App.css';
 import firebase from './firebase';
-import axios from 'axios';
+// import axios from 'axios';
 import {useState, useEffect} from 'react';
 import Header from './Header';
 import MovieForm from './MovieForm';
