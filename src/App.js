@@ -2,6 +2,7 @@ import './App.css';
 import firebase from './firebase';
 import axios from 'axios';
 import {useState, useEffect} from 'react';
+import Header from './Header';
 import MovieForm from './MovieForm';
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
   }
 
   useEffect(() => {
-    // const dbRef = firebase.database().ref();
+    const dbRef = firebase.database().ref();
 
     dbRef.on('value', (response) => {
       const data = response.val();
@@ -41,12 +42,11 @@ function App() {
 
   return (
     <div className="App">
+      <Header/>
       <MovieForm
-        // handleChange={() => {handleChange()}}
         handleChange={handleChange}
         value={userInput}
         handleClick={handleClick}
-        // handleClick={() => {handleClick()}}
       />
       <ul>
         {movies.map((movie) => {
