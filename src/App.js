@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useState, useEffect} from 'react';
 import Header from './Header';
 import MovieForm from './MovieForm';
+import SpecialAside from './SpecialAside'
 import Footer from './Footer';
 
 function App() {
@@ -103,6 +104,7 @@ function App() {
           );
         })}
       </ul>
+      <SpecialAside/>
       <Footer/>
     </div>
   );
