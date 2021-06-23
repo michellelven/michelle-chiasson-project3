@@ -24,7 +24,8 @@ h2,
 h3,
 p,
 ul,
-li {
+li,
+input {
     margin: 0;
     padding: 0;
 }
@@ -50,10 +51,11 @@ header {
     background-color: #3A0CA3;
     display: flex;
     justify-content: center;
+    padding: 5vh 0;
 }
 
 header .reelImage {
-    height: 80px;
+    height: 100px;
     padding-left: 0.5rem;
 }
 
@@ -61,7 +63,7 @@ h1 {
     font-family: 'Yanone Kaffeesatz', sans-serif;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 4rem;
+    font-size: 5rem;
     color: white;
     padding-right: 0.5rem;
 }
@@ -72,6 +74,23 @@ h1 {
     background-color: #3A0CA3;
     color: white;
     text-align: center;
+}
+
+.instructionsForm p{
+    padding: 1.5rem 0;
+}
+
+.instructionsForm form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.instructionsForm input {
+    border-style: none;
+    outline: none;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .instructionsForm p span {
@@ -90,11 +109,16 @@ h1 {
 
 .App li {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    border: 15px solid #4361EE;
+    padding: 2rem 0;
+    margin: 2rem 0;
+    background-image: linear-gradient(to bottom right, #3A0CA3, #7209B7, #4CC9F0);
 }
 
 .App li .movieImage {
-    width: 350px;
+    width: 300px;
 }
 
 .App li .movieInfo {
@@ -102,7 +126,29 @@ h1 {
 }
 
 .App li h3 {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
     color: white;
+}
+
+.App li p {
+    color: white;
+    font-size: 1rem;
+}
+
+/* Footer Styles */
+
+footer {
+    background-color: #4361EE;
+    text-align: center;
+    color:white;
+    padding: 0.5rem 0;
+}
+
+footer span {
+    display: block;
+    padding-top: 0.25rem;
 }
 
 

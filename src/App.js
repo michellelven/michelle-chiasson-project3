@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useState, useEffect} from 'react';
 import Header from './Header';
 import MovieForm from './MovieForm';
+import Footer from './Footer';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -74,7 +75,7 @@ function App() {
         value={userInput}
         handleClick={handleClick}
       />
-      <ul>
+      <ul className="wrapper">
         {movies.map((movie) => {
           return (
             <li key={movie.key}>
@@ -105,6 +106,7 @@ function App() {
           );
         })}
       </ul>
+      <Footer/>
     </div>
   );
 }
