@@ -12,8 +12,6 @@ function App() {
   const [movieData, setMovieData] = useState({});
   const dbRef = firebase.database().ref();
 
-  // new variable to hold api results.
-
   const handleChange = (event) => {
     setUserInput(event.target.value);
   }
@@ -36,7 +34,6 @@ function App() {
       // clearing state and adding firebase data
       setMovieData({});
       const data = response.val();
-      console.log(data);
       const movieArray = [];
 
       for (let key in data) {
@@ -100,7 +97,7 @@ function App() {
                     ? ""
                     : movieData[movie.key].overview}
                 </p>
-                <button onClick={() => removeMovie(movie.key)}>Remove</button>
+                <button onClick={() => removeMovie(movie.key)}>Remove!</button>
               </div>
             </li>
           );

@@ -45,6 +45,22 @@ li {
     list-style-type: none;
 }
 
+button {
+    color: white;
+    background-color: #7209B7;
+    padding: 0.5rem;
+    border: 3px solid #4361EE;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif; 
+}
+
+button:hover,
+button:focus {
+    border: 3px solid #4CC9F0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 /* Header Styles */
 
 header {
@@ -62,7 +78,7 @@ header .reelImage {
 h1 {
     font-family: 'Yanone Kaffeesatz', sans-serif;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 5rem;
     color: white;
     padding-right: 0.5rem;
@@ -74,10 +90,12 @@ h1 {
     background-color: #3A0CA3;
     color: white;
     text-align: center;
+    padding-bottom: 5vh;
 }
 
 .instructionsForm p{
     padding: 1.5rem 0;
+    line-height: 1.5rem;
 }
 
 .instructionsForm form {
@@ -112,9 +130,10 @@ h1 {
     justify-content: space-around;
     align-items: center;
     border: 15px solid #4361EE;
+    border-radius: 20px;
     padding: 2rem 0;
     margin: 2rem 0;
-    background-image: linear-gradient(to bottom right, #3A0CA3, #7209B7, #4CC9F0);
+    background-image: linear-gradient(to bottom right, #4CC9F0 , #7209B7 , #F72585);
 }
 
 .App li .movieImage {
@@ -125,16 +144,18 @@ h1 {
     flex-basis: 50%;
 }
 
-.App li h3 {
+.movieInfo h3 {
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: 2rem;
     letter-spacing: 0.1rem;
     color: white;
 }
 
-.App li p {
+.movieInfo p {
     color: white;
     font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 1rem 0;
 }
 
 /* Footer Styles */
@@ -144,13 +165,19 @@ footer {
     text-align: center;
     color:white;
     padding: 0.5rem 0;
+    margin-top: 10vh;
 }
 
 footer span {
     display: block;
     padding-top: 0.25rem;
 }
+footer img {
+    height: 0.75rem;
+    display: inline-block;
+}
 
-
-
+footer .disclaimer {
+    font-size: 0.75rem;
+}
 
