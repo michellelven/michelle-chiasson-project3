@@ -88,8 +88,23 @@ h1 {
     text-align: center;
 }
 
+.App li {
+    display: flex;
+    justify-content: center;
+}
+
+.App li .movieImage {
+    width: 350px;
+}
+
+.App li .movieInfo {
+    flex-basis: 50%;
+}
+
 .App li h3 {
     color: white;
 }
+
+
 
 

@@ -8,7 +8,7 @@ import MovieForm from './MovieForm';
 function App() {
   const [movies, setMovies] = useState([]);
   const [userInput, setUserInput] = useState('');
-  const [movieData, setMovieData] = useState([]);
+  const [movieData, setMovieData] = useState({});
   const dbRef = firebase.database().ref();
 
   // new variable to hold api results.
@@ -33,21 +33,21 @@ function App() {
 
     dbRef.on('value', (response) => {
       // clearing state and adding firebase data
-      setMovieData([]);
+      setMovieData({});
       const data = response.val();
       console.log(data);
       const movieArray = [];
 
       for (let key in data) {
         movieArray.push({key: key, name: data[key]});
-        getMovie(data[key]);
+        getMovie(key, data[key]);
       }
       // Update state with the new movieArray.
       setMovies(movieArray);
     })
   }, [])
 
-  const getMovie = (eachMovie) => {
+  const getMovie = (key, eachMovie) => {
     axios({
       url: "https://api.themoviedb.org/3/search/movie",
       method: "GET",
@@ -59,8 +59,9 @@ function App() {
       }
     }).then((res) => {     
       setMovieData((incomingData) => {
-        const movieDataArray = [...incomingData, res.data.results[0]];
-        return movieDataArray;
+        const movieDataObject = {...incomingData};
+        movieDataObject[key] = res.data.results[0];
+        return movieDataObject;
       })
     })
   }
@@ -77,8 +78,29 @@ function App() {
         {movies.map((movie) => {
           return (
             <li key={movie.key}>
-              <h3>{movie.name}</h3>
-              <button onClick={() => removeMovie(movie.key)}>Remove</button>
+              <div className="movieImage">
+                <img 
+                  src={movieData[movie.key] === undefined 
+                      ? "" 
+                      : `https://image.tmdb.org/t/p/w500/${movieData[movie.key].poster_path}`} 
+                  alt={movieData[movie.key] === undefined
+                      ? ""
+                      : movieData[movie.key].title} 
+                />
+              </div>
+              <div className="movieInfo">
+                <h3>
+                  {movieData[movie.key] === undefined
+                    ? ""
+                    : movieData[movie.key].title}
+                </h3>
+                <p>
+                  {movieData[movie.key] === undefined
+                    ? ""
+                    : movieData[movie.key].overview}
+                </p>
+                <button onClick={() => removeMovie(movie.key)}>Remove</button>
+              </div>
             </li>
           );
         })}
