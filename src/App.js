@@ -19,6 +19,9 @@ function App() {
 
   const handleClick = (event) => {
     event.preventDefault();
+    if (userInput === "") {
+      return;
+    }  
     dbRef.push(userInput);
     setUserInput('');
   }
@@ -27,16 +30,16 @@ function App() {
   const removeMovie = (movieId) => {
     dbRef.child(movieId).remove();
   }
-
+  
   useEffect(() => {
     const dbRef = firebase.database().ref(); 
-
+    
     dbRef.on('value', (response) => {
       // clearing state and adding firebase data
       setMovieData({});
       const data = response.val();
       const movieArray = [];
-
+      
       for (let key in data) {
         movieArray.push({key: key, name: data[key]});
         getMovie(key, data[key]);
@@ -45,7 +48,8 @@ function App() {
       setMovies(movieArray);
     })
   }, [])
-
+  
+  // Function for the API call. Gathers movie data based on firebase keys
   const getMovie = (key, eachMovie) => {
     axios({
       url: "https://api.themoviedb.org/3/search/movie",
@@ -56,10 +60,13 @@ function App() {
         query: eachMovie,
         include_adult: false
       }
-    }).then((res) => {     
-      setMovieData((incomingData) => {
-        const movieDataObject = {...incomingData};
+    }).then((res) => { 
+      setMovieData((originalState) => {
+        // Copying/cloning state
+        const movieDataObject = {...originalState};
+        // Adding new data from API into the copy/clone
         movieDataObject[key] = res.data.results[0];
+        // Setting the movieData state to the copy/clone
         return movieDataObject;
       })
     })
@@ -78,6 +85,7 @@ function App() {
           return (
             <li key={movie.key}>
               <div className="movieImage">
+                {/* Since two states are being changed asynchronously, movieData may be undefined at this point, so we require a ternary operator. This happens throughout the render and I will clean this up in the future when time allows. */}
                 <img 
                   src={movieData[movie.key] === undefined 
                       ? "" 

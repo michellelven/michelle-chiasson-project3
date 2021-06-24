@@ -108,6 +108,12 @@ h1 {
     outline: none;
     padding: 0.5rem;
     margin-bottom: 1rem;
+    border: 3px solid #7209B7;
+    border-radius: 10px;
+}
+
+.instructionsForm input:focus {
+    border: 3px solid #4CC9F0;
 }
 
 .instructionsForm p span {
